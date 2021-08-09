@@ -77,4 +77,9 @@ class MockReference extends Mock implements Reference {
   Future<Uint8List> getData([int maxSize = 10485760]) {
     return Future.value(_storage.storedDataMap[_path]);
   }
+
+  @override
+  Future<String> getDownloadURL() {
+    return Future.value('https://firebasestorage.googleapis.com/$_path');
+  }
 }
